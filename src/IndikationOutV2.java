@@ -45,6 +45,7 @@ class IndicationOut extends Thread {
 			System.out.println("closing...");
 		} catch (IOException e) {
 			System.err.println("IO Exception");
+			System.out.println("Client:" + clientNumber + " closed");
 		} finally {
 			try {
 				socket.close();

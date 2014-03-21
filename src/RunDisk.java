@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RunDisk {
@@ -33,9 +34,24 @@ public class RunDisk {
 
 	// размонтирование диска
 	public void UnMount(String nDisk) {
-		List<String> params = java.util.Arrays.asList(
-				"C:\\Program Files\\TrueCrypt\\truecrypt.exe", "/d", nDisk,
-				"/q");
+
+		List<String> params = new ArrayList<String>();
+
+		if (nDisk.equals("a")) {
+			params.add(programPath);
+			params.add("/d");
+			params.add("/q");
+		} else if ((nDisk.equals("o")) || (nDisk.equals("p"))
+				|| (nDisk.equals("r")) || (nDisk.equals("s"))
+				|| (nDisk.equals("t"))) {
+			params.add(programPath);
+			params.add("/d");
+			params.add(nDisk);
+			params.add("/q");
+		} else {
+			System.out.println("Вы не угадали, нет такой буквы в слове");
+		}
+
 		ProcessBuilder b = new ProcessBuilder(params);
 		try {
 			b.start();
@@ -44,5 +60,4 @@ public class RunDisk {
 			e.printStackTrace();
 		}
 	}
-
 }
