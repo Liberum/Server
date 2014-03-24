@@ -13,7 +13,7 @@ public class RunDisk {
 		String dsk = mount.get(0);
 		String password = mount.get(2);
 		List<String> params = java.util.Arrays.asList(programPath, "/v", dPath,
-				"/l", dsk, "/p", password, "/e", "/b", "/w", "/q");
+				"/l", dsk, "/p", password, "/b", "/w", "/q", "/s");
 
 		ProcessBuilder b = new ProcessBuilder(params);
 		try {
@@ -41,6 +41,8 @@ public class RunDisk {
 			params.add(programPath);
 			params.add("/d");
 			params.add("/q");
+			params.add("/s");
+			params.add("/f");
 		} else if ((nDisk.equals("o")) || (nDisk.equals("p"))
 				|| (nDisk.equals("r")) || (nDisk.equals("s"))
 				|| (nDisk.equals("t"))) {
@@ -48,6 +50,8 @@ public class RunDisk {
 			params.add("/d");
 			params.add(nDisk);
 			params.add("/q");
+			params.add("/s");
+			params.add("/f");
 		} else {
 			System.out.println("Вы не угадали, нет такой буквы в слове");
 		}

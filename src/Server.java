@@ -13,7 +13,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLServerSocket;
 
 public class Server {
-	static String keystore = "C:/serverkeys"; // ключ к сертификату
+	static String keystore = "serverkeys"; // ключ к сертификату
 	// static String keystore = "./src/keys/serverkeys"; // ключ к сертификату
 	static char keystorepass[] = "qwerty".toCharArray();
 	static char keypassword[] = "123456".toCharArray();
